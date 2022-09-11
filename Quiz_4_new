@@ -1,0 +1,186 @@
+# # 1. Create a 2-D array and slice out the second number in the second column
+sample = [[30, 45], [4, 3], [6, 7]]
+print(sample)
+sample[1:1].pop()
+
+
+
+
+
+#2. Write a python program to sort array element in the ascending/descending order
+num = int(input("Input size of array: "))
+a = list(map(int, input("Enter element\n").split()))
+def _ascending(list):
+    a.sort()
+    print(*a)
+def _descending(list):
+    a.sort(reverse = True)
+    print(*a)
+
+choice =input("Enter 'a' for ascending or 'd' for descending: ")
+if choice == 'a':
+    _ascending(a)
+elif choice == 'd':
+    _descending(a)
+
+
+# 3. Write a python program to find the maximum and minimum value in a given 2-D array
+import numpy as np
+
+sample = np.array([5, 100], [4, 7], [8,10])
+print("array is: ","\n, sample")
+print("The minimum value from each row is: ","\n", np.min(sample, axis = 1), "\n")
+print("The maximum value from each row is: ","\n", np.max(sample, axis = 1), "\n")
+
+
+
+4.Write a python program to input 5 subject marks and calculate total marks, 
+percentage and grade based on following criteria
+percentage less than 50 (Grade C)
+percentage equal to 50 and less than 80 (Grade B)
+percentage equal to 80 and more than 80 (Grade A)
+totalmarks = 0
+marks = list(map(int, input("Enter marks for the five subjects: \n").split()))
+def tmarks(list):
+    for mark in marks:
+        totalmarks = totalmarks + mark
+        print("Total marks are {totalmarks}")
+    percentage = totalmarks/5
+    if percentage < 50:
+        print("Your grade is C")
+    elif percentage == 50 and percentage < 80:
+        print("Your grade is B")
+    elif percentage >= 80:
+        print("Your grade is A")
+
+tmarks(marks)
+
+
+# 5.Write a python program to fetch only Email ID from text file which include following fields -:
+# Name
+# Mobile Number
+# Roll Number
+# Email ID
+
+def get_email(file_txt):
+f = open("file.txt")
+get = f.readlines()
+for line in get:
+    if "@" in line and "." in line:
+        print(line)
+file.txt.close()
+get_email(file_txt)
+
+
+#6. Write a function for checking the speed of drivers. This function should have one parameter: speed.
+# If speed is less than 70, it should print “Ok”.
+# Otherwise, for every 5km above the speed limit (70), it should give the driver 
+# one demerit point and print the total number of demerit points. For example, 
+# if the speed is 80, it should print: “Points: 2”.
+# If the driver gets more than 12 points, the function should print: “License suspended”
+count = 0
+def speed_check(speed):
+    if speed < 70:
+        print("Ok")
+    elif speed > 70:
+        while(True):
+            speed - 5
+            points = count + 1
+        print("Demerit Points: {points}")
+        if points > 12:
+            print("Licence suspended")
+            
+
+speed = int(input("Please enter speed of driver: "))
+speed_check(speed)
+
+    
+
+
+#7.  Write a function called show_stars(rows). If rows is 5, it should print the following:
+# *
+# **
+# ***
+# ****
+# *****
+def show_stars(rows):
+    for i in range(rows):
+        for k in range(i):
+            print("*")
+        print("\n")
+    
+show_stars(5)
+
+
+#8.Write a program which will find all such numbers which are divisible by 7 but are not a multiple 
+# of 5 between 2000 and 3200 (both included). The numbers obtained should be printed in a 
+# comma-separated sequence on a single line.
+
+my_list = [1*x for x in range(2000, 3200) if x%7 == 0 and x%5 != 0]
+print(my_list)
+
+9. Write a program which accepts a sequence of comma-separated numbers from console and 
+generate a list and a tuple which contains every number. Suppose the following input is 
+supplied to the program: 34,67,55,33,12,98 Then, the output should be:
+['34', '67', '55', '33', '12', '98']
+('34', '67', '55', '33', '12', '98')
+
+nums = input("Enter comma-separated numbers: ")
+my_list = [int(num) for num in nums.split(",")]
+print(my_list)
+print(tuple(my_list))
+
+#10. Write a program that calculates and prints the value according to the given formula:
+# Q = Square root of [(2 * C * D)/H] 
+# Following are the fixed values of C and H: C is 50. H is 30. 
+# D is the variable whose values should be input to your program in a comma-separated sequence. 
+# Example Let us assume the following comma separated input sequence is given to the program: 
+# 100,150,180 
+# The output of the program should be: 18,22,24
+from math import sqrt
+C = 50
+H = 30
+D = input("Enter comma-separated numbers: ")
+# my_list = [int(num) for num in D.split(",")]
+for i in D:
+    j = int(i)
+    Q = sqrt((2 * C * j)/H)
+    print(Q)
+
+11. Write a function to compute 5/0 and use try/except to catch the exceptions.
+try:
+    def compute(a,b):
+        return a/b
+        quotient = a/b
+        print("Result is: {quotient}")
+    compute(5, 0)
+except:
+    print("Error! Division by 0")
+    
+    
+#12. Create a nesting list that prints out the color and the car brand.
+car_color = {'black':'spacio', 'white':'ford', 'grey':'wish'}
+count = 0
+for car in car_color:
+    print([list(car_color.items())])
+    count = count +1
+
+
+#13. Bonus Question: Algorithm challenge: Create your own sorting algorithm.
+arr = marks = list(map(int, input("Enter numbers to sort: \n").split(",")))
+new_arr = [int(item) for item in arr]
+def _sort(list):
+    
+    for i in range(0, len(new_arr)):
+        
+        for j in range(0, len(new_arr)-i-1):
+            if new_arr[i]> new_arr[j+1]:
+                temp = new_arr[j]
+                new_arr[j] = new_arr[j+1]
+                new_arr[j+1] = temp
+            j = j+1
+        i = i+1
+        print(new_arr)
+_sort(new_arr)
+                
+            
